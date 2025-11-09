@@ -88,6 +88,8 @@ body.dark .mode-toggle i {
 
 
 
+
+
 .hero{padding:130px 0 80px;text-align:center}
 .hero h1{font:700 3rem 'Playfair Display',serif;margin-bottom:.5rem;color:var(--accent)}
 .hero p{max-width:600px;margin:1rem auto;color:#555;color:var(--txt);opacity:.9;font-size:1.1rem}
@@ -249,13 +251,14 @@ footer{text-align:center;padding:2.5rem 0;color:#888;color:var(--txt);font-size:
       <a href="#contact">Contact</a>
     </div>
 
-    <div class="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
-
     <div class="mode-toggle" id="modeToggle">
       <i class="fas fa-moon"></i>
     </div>
+
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+    
   </nav>
 
   </div>
@@ -397,6 +400,11 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
+const toggle = document.getElementById('modeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
 // Hamburger toggle for mobile
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -405,10 +413,6 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-const toggle = document.getElementById('modeToggle');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-  });
 
 </script>
 </body>
