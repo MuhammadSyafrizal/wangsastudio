@@ -33,7 +33,60 @@ nav{display:flex;justify-content:space-between;align-items:center}
 .hamburger,.mode-toggle{display:none;cursor:pointer}
 .hamburger {cursor: pointer;z-index: 2001;position: relative;}
 .hamburger span,.mode-toggle i{display:block;width:22px;height:2px;background:var(--txt);margin:5px 0;transition:.3s}
-.mode-toggle i{height:auto;font-size:1.2rem;color:var(--txt)}
+/* ==== Mode Toggle Button ==== */
+.mode-toggle {
+  cursor: pointer;
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.mode-toggle i {
+  font-size: 1.3rem;
+  color: #222;
+  transition: color 0.3s ease;
+}
+.mode-toggle i {
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative;
+  top: 0;
+}
+
+.mode-toggle i::before {
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.mode-toggle i {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900;
+}
+
+
+.mode-toggle {
+  text-decoration: none !important;
+  border: none !important;
+}
+
+
+/* Saat dark mode aktif */
+body.dark .mode-toggle i {
+  color: #ffd700; /* kuning bulan */
+}
+
+/* Pastikan tidak tertutup elemen lain */
+.navbar,
+.mode-toggle,
+.mode-toggle i {
+  pointer-events: auto;
+}
+
 
 .hero{padding:130px 0 80px;text-align:center}
 .hero h1{font:700 3rem 'Playfair Display',serif;margin-bottom:.5rem;color:var(--accent)}
@@ -186,22 +239,26 @@ footer{text-align:center;padding:2.5rem 0;color:#888;color:var(--txt);font-size:
 
 <header>
   <div class="container">
-    <nav>
-  <div class="logo">Wangsa Studio</div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#">Home</a></li>
-    <li><a href="#rooms">Rooms</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="mode-toggle" onclick="toggleDarkMode()">
-  <i class="fas fa-moon"></i>
-</div>
+   <nav class="navbar">
+    <div class="logo">Wangsa Studio</div>
 
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="mode-toggle" id="modeToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512" fill="currentColor">
+    <path d="M279.135 512c78.787 0 149.51-35.807 195.472-91.678C386.728 426.707 312.193 358.7 312.193 272.14c0-86.613 74.534-154.619 162.414-148.183C428.645 35.768 357.922 0 279.135 0 125.219 0 0 114.615 0 256s125.219 256 279.135 256z"/>
+  </svg>
+    </div>
+  </nav>
 
   </div>
 </header>
@@ -341,6 +398,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+const toggle = document.getElementById('modeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
 
 // Hamburger toggle for mobile
 const hamburger = document.getElementById('hamburger');
