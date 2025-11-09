@@ -31,7 +31,15 @@ nav{display:flex;justify-content:space-between;align-items:center}
 .nav-links a:hover{color:var(--accent)}
 
 /* Pastikan tidak tertutup elemen lain */
-.navbar,
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--bg);
+  position: relative;
+  z-index: 100;
+}
 .mode-toggle,
 .mode-toggle i {
   pointer-events: auto;
@@ -42,14 +50,15 @@ nav{display:flex;justify-content:space-between;align-items:center}
 .hamburger span,.mode-toggle i{display:block;width:22px;height:22px;margin:5px 0;transition:.3s}
 /* ==== Mode Toggle Button ==== */
 .mode-toggle {
-  cursor: pointer;
-  z-index: 1000;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   width: 40px;
   height: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .mode-toggle i {
@@ -82,7 +91,7 @@ nav{display:flex;justify-content:space-between;align-items:center}
 
 /* Saat dark mode aktif */
 body.dark .mode-toggle i {
-  color: #ffd700; /* kuning bulan */
+  color: #ffd700;
 }
 
 
