@@ -33,17 +33,7 @@ nav{display:flex;justify-content:space-between;align-items:center}
 .hamburger,.mode-toggle{display:none;cursor:pointer}
 .hamburger {cursor: pointer;z-index: 2001;position: relative;}
 .hamburger span,.mode-toggle i{display:block;width:22px;height:2px;background:var(--txt);margin:5px 0;transition:.3s}
-.mode-toggle i {
-  font-size: 1.4rem;
-  color: #222;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-body.dark .mode-toggle i {
-  color: #ffd700; /* kuning bulan saat mode gelap */
-}
-
+.mode-toggle i{height:auto;font-size:1.2rem;color:var(--txt)}
 
 .hero{padding:130px 0 80px;text-align:center}
 .hero h1{font:700 3rem 'Playfair Display',serif;margin-bottom:.5rem;color:var(--accent)}
@@ -207,6 +197,7 @@ footer{text-align:center;padding:2.5rem 0;color:#888;color:var(--txt);font-size:
   <div class="mode-toggle" onclick="toggleDarkMode()">
   <i class="fas fa-moon"></i>
 </div>
+
   <div class="hamburger" id="hamburger">
     <span></span><span></span><span></span>
   </div>
