@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wangsa Studio | Professional Recording Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5e6d3;--txt:#0a0b06;--btn:#f5e6d3;--card:#fff;--border:#eee;--accent:#273236}
+body.dark{--bg:#1a1a1a;--txt:#eee;--btn:#f5e6d3;--card:#2a2a2a;--border:#444;--accent:#d4a574}
+body{font:400 1rem/1.6 'Inter',sans-serif;color:var(--txt);background:var(--bg);transition:.3s}
+
+.container{max-width:1200px;margin:auto;padding:0 1rem}
+header{position:fixed;top:0;width:100%;background:var(--bg);z-index:1000;padding:1rem 0;box-shadow:0 2px 10px rgba(0,0,0,.05);backdrop-filter:blur(10px)}
+
+nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font:700 1.5rem 'Playfair Display',serif;color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--txt);text-decoration:none;font-weight:500;transition:.2s}
+.nav-links a:hover{color:var(--accent)}
+
+.hamburger,.mode-toggle{display:none;cursor:pointer}
+.hamburger span,.mode-toggle i{display:block;width:22px;height:2px;background:var(--txt);margin:5px 0;transition:.3s}
+.mode-toggle i{height:auto;font-size:1.2rem;color:var(--txt)}
+
+.hero{padding:130px 0 80px;text-align:center}
+.hero h1{font:700 3rem 'Playfair Display',serif;margin-bottom:.5rem;color:var(--accent)}
+.hero p{max-width:600px;margin:1rem auto;color:#555;color:var(--txt);opacity:.9;font-size:1.1rem}
+
+.btn{display:inline-block;padding:.9rem 2rem;background:var(--accent);color:#f5e6d3;border-radius:50px;font-weight:600;text-decoration:none;margin:.5rem;transition:.3s}
+.btn:hover{background:#e6d5c3;transform:translateY(-2px)}
+
+.spring-link{color:var(--accent);text-decoration:none;font-weight:500}
+.spring-link:hover{text-decoration:underline}
+
+.milestone{margin:3rem auto;max-width:600px;padding:2rem;border:2px solid var(--border);border-radius:15px;text-align:center;background:linear-gradient(135deg, #0F2027, #203A43, #2C5364)}
+.milestone h3{font-size:2.8rem;font-weight:700;margin-bottom:.5rem;color:var(--btn)}
+.milestone p{font-size:1.1rem;color:var(--btn);opacity:.9}
+
+.carousel{position:relative;overflow:hidden;border-radius:15px;margin:2rem 0;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.carousel-track{display:flex;transition:transform .5s ease}
+.carousel-slide{flex:0 0 100%;position:relative}
+.carousel-slide img{width:100%;height:380px;object-fit:cover;filter:brightness(0.8)}
+.carousel-caption{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(0,0,0,.7);color:#fff;padding:.9rem 1.4rem;border-radius:12px;font-weight:600;backdrop-filter:blur(5px)}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;width:45px;height:45px;border-radius:50%;cursor:pointer;font-size:1.3rem;transition:.3s}
+.carousel-btn:hover{background:var(--accent);color:#222}
+.prev{left:1rem}.next{right:1rem}
+
+.products h2{font:700 2.4rem 'Playfair Display',serif;text-align:center;margin:3rem 0 2rem;color:var(--accent)}
+.grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--card);padding:1.8rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08);cursor:pointer;transition:.3s;opacity:0;transform:translateY(20px);border:1px solid var(--border)}
+.card.show{opacity:1;transform:none;transition:.6s ease-out}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,0,0,.12)}
+.card img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:1rem}
+.card h4{font-weight:600;margin-bottom:.4rem;font-size:1.1rem}
+.card p{font-size:.95rem;color:#666;color:var(--txt);opacity:.85;line-height:1.5}
+.price{font-weight:700;color:var(--accent);font-size:1.2rem}
+
+.contact{padding:90px 0;background:var(--card);border-radius:15px;margin:3rem 0;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+.contact h2{text-align:center;margin-bottom:2rem;color:var(--accent)}
+form{max-width:520px;margin:auto;display:grid;gap:1.1rem}
+input,textarea{width:100%;padding:.9rem;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--txt);font:inherit;transition:.3s}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(212,165,116,.2)}
+input::placeholder,textarea::placeholder{color:#999}
+form button{background:var(--accent);border:none;padding:1rem;font-weight:600;border-radius:10px;cursor:pointer;transition:.3s;font-size:1.05rem}
+form button:hover{background:#e6d5c3;transform:translateY(-2px)}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);align-items:center;justify-content:center;z-index:2000;padding:1rem;overflow-y:auto}
+.modal-content{background:var(--card);max-width:540px;width:100%;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.modal img{width:100%;height:300px;object-fit:cover}
+.modal-body{padding:2rem}
+.modal h3{font:700 1.8rem 'Playfair Display',serif;margin-bottom:.6rem;color:var(--accent)}
+.modal p{color:#555;color:var(--txt);opacity:.9;line-height:1.6}
+.close{position:absolute;top:1.2rem;right:1.2rem;font-size:1.8rem;cursor:pointer;color:#ccc;z-index:10;transition:.3s}
+.close:hover{color:var(--accent)}
+
+footer{text-align:center;padding:2.5rem 0;color:#888;color:var(--txt);font-size:.9rem;border-top:1px solid var(--border);margin-top:3rem}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--bg);flex-direction:column;padding:1rem 0;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+  .nav-links.active{display:flex}
+  .hamburger,.mode-toggle{display:block}
+  .hero h1{font-size:2.2rem}
+  .carousel-caption{font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Wangsa Studio</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mode-toggle" onclick="document.body.classList.toggle('dark')"><i class="fas fa-moon"></i></div>
+      <div class="hamburger" onclick="this.previousElementSibling.classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Turn Your Dreams<br>Into Sounds</h1>
+    <p>At Wangsa Studio, we offer top-tier recording spaces with cutting-edge gear, flawless acoustics, and seasoned engineers. 
+        Whether you're an indie band, solo artist, podcaster, or producer, 
+        find the perfect room to craft your masterpiece.</p>
+    <a href="#rooms" class="btn">Explore Rooms</a>
+    <a href="#contact" class="spring-link">Book a Session →</a>
+
+    <div class="milestone">
+      <h3>500+</h3>
+      <p>Sessions Recorded This Year</p>
+    </div>
+  </div>
+</section>
+
+<!-- Carousel: Studio Rooms -->
+<section class="carousel" id="gallery">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide">
+      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Main Control Room">
+      <div class="carousel-caption">Main Control Room – Pro Tools | SSL Console</div>
+    </div>
+    <div class="carousel-slide">
+      <img src=https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000 alt="Live Room A">
+      <div class="carousel-caption">Live Room A – Sound Mixing | Editing</div>
+    </div>
+    <div class="carousel-slide">
+      <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vocal Booth">
+      <div class="carousel-caption">Vocal Booth – Neumann U87 | Isolation</div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+  <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+</section>
+
+<!-- Studio Rooms -->
+<section class="products" id="rooms">
+  <div class="container">
+    <h2>Our Recording Rooms</h2>
+    <div class="grid">
+      <div class="card" onclick="openModal('Main Control Room','State-of-the-art mixing suite with SSL 9000J console, Pro Tools Ultimate, and premium outboard gear. Perfect for full band tracking and mastering.','https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80','$120/hr')">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Main Control Room">
+        <h4>Main Control Room</h4>
+        <p>SSL Console • Pro Tools • Full Band</p>
+        <p class="price">$120/hour</p>
+      </div>
+      <div class="card" onclick="openModal('Live Room A','Spacious live room with treated acoustics, grand piano, and isolated drum booth. Ideal for bands and orchestral recordings.','https://images.unsplash.com/photo-1598488035138-bd2f6f5232ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80','$90/hr')">
+        <img src=https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000 alt="Live Room A">
+        <h4>Live Room A</h4>
+        <p>Sound Mixing • Editing Tools • 300 sq ft</p>
+        <p class="price">$90/hour</p>
+      </div>
+      <div class="card" onclick="openModal('Vocal Booth','Intimate, dead-quiet vocal isolation booth with Neumann U87, Avalon 737, and perfect sightlines to control room.','https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80','$60/hr')">
+        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vocal Booth">
+        <h4>Vocal Booth</h4>
+        <p>Neumann U87 • Avalon Preamp • Isolated</p>
+        <p class="price">$60/hour</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Book Your Session</h2>
+    <form onsubmit="event.preventDefault();alert('Thank you! Your session request has been sent.');this.reset()">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number">
+      <textarea rows="5" placeholder="Tell us about your project (genre, duration, etc.)" required></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal" onclick="this.style.display='none'">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="document.getElementById('modal').style.display='none'">×</span>
+    <img id="mImg" src="" alt="">
+    <div class="modal-body">
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem">
+        <a href="#contact" class="btn">Book Now</a>
+        <p id="mPrice" class="price"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Wangsa Studio. Professional recording services in the heart of the city.</p>
+  </div>
+</footer>
+
+<script>
+let slideIndex = 0;
+const track = document.getElementById('carouselTrack');
+const slides = document.querySelectorAll('.carousel-slide');
+
+function moveSlide(n) {
+  slideIndex = (slideIndex + n + slides.length) % slides.length;
+  track.style.transform = `translateX(${-slideIndex * 100}%)`;
+}
+
+// Auto-play carousel
+let autoSlide = setInterval(() => moveSlide(1), 5000);
+
+// Pause on hover
+document.querySelector('.carousel').addEventListener('mouseenter', () => clearInterval(autoSlide));
+document.querySelector('.carousel').addEventListener('mouseleave', () => autoSlide = setInterval(() => moveSlide(1), 5000));
+
+function openModal(title, desc, img, price) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('mTitle').textContent = title;
+  document.getElementById('mDesc').textContent = desc;
+  document.getElementById('mImg').src = img;
+  document.getElementById('mPrice').textContent = price;
+}
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target); // Optional: animate once
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+// Mobile menu toggle fix
+document.querySelector('.hamburger').addEventListener('click', function() {
+  this.previousElementSibling.classList.toggle('active');
+});
+</script>
+</body>
+</html>
