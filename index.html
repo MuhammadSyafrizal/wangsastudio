@@ -23,6 +23,7 @@ nav{display:flex;justify-content:space-between;align-items:center}
 .nav-links a:hover{color:var(--accent)}
 
 .hamburger,.mode-toggle{display:none;cursor:pointer}
+.hamburger {cursor: pointer;z-index: 2001;position: relative;}
 .hamburger span,.mode-toggle i{display:block;width:22px;height:2px;background:var(--txt);margin:5px 0;transition:.3s}
 .mode-toggle i{height:auto;font-size:1.2rem;color:var(--txt)}
 
@@ -76,11 +77,7 @@ form button:hover{background:#e6d5c3;transform:translateY(-2px)}
 .modal p{color:#555;color:var(--txt);opacity:.9;line-height:1.6}
 .close{position:absolute;top:1.2rem;right:1.2rem;font-size:1.8rem;cursor:pointer;color:#ccc;z-index:10;transition:.3s}
 .close:hover{color:var(--accent)}
-.hamburger {
-  cursor: pointer;
-  z-index: 2001; /* pastikan di atas elemen lain */
-  position: relative;
-}
+
 
 
 footer{text-align:center;padding:2.5rem 0;color:#888;color:var(--txt);font-size:.9rem;border-top:1px solid var(--border);margin-top:3rem}
